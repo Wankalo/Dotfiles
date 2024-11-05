@@ -11,12 +11,13 @@ zmodload zsh/complist
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 setopt globdots
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case insensitive
+
 # Vi keys in autocomplete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
- # cd by typing dir name
+# cd by typing dir name
 
 # History in cache dir
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
@@ -42,6 +43,16 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 # fzf
 eval "$(fzf --zsh)"
+
+# yazi wrapper: y
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # powerlevel10k might switch to oh my posh
 source $XDG_CONFIG_HOME/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
