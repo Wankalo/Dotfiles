@@ -1,15 +1,12 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 5,
-    "margin-left": 10,
-    "margin-right": 10,
-    "height": 20,
+    "margin-left": 0,
+    "margin-right": 0,
+    "height": 32,
     "spacing": 0,
     "modules-left": [
-        "custom/launcher",
         "sway/workspaces",
-        "group/group-tray",
         "mpris",
         "sway/mode"
     ],
@@ -17,8 +14,9 @@
         "clock"
     ],
     "modules-right": [
+        "tray",
         "sway/language",
-    	"backlight",
+        "backlight",
         "pulseaudio",
         "network",
         "battery",
@@ -37,22 +35,7 @@
     },
         
     "sway/mode": {
-        "format": "R"
-    },
-    "group/group-tray": {
-    	"orientation": "inherit",
-	    "drawer": {
-		    "transition-duration": 500,
-	        "children-class": "not-power",
-	    },
-	    "modules": [
-		    "custom/open",
-		    "tray"
-	    ]
-    },
-    "custom/open": {
-        "format": "  ",
-        "tooltip": false
+        "format": "<i>R</i>"
     },
 
     "tray": {
@@ -64,22 +47,16 @@
         "format": "    {:%H:%M} "
     },
     "network": {
-        "format-wifi": "{icon} {essid}",
-        "format-disconnected": "Disconnected ⚠ ",
-        "on-click": "sh ~/.config/rofi/wifi/rofi-wifi-menu.sh &",
-        "format-icons": [
-            "󰤯 ",
-            "󰤟 ",
-            "󰤢 ",
-            "󰤥 ",
-            "󰤨 "
-        ],
+        "tooltip": true,
+        "format-wifi": "{icon} ",
+        "format-icons": ["󰤟", "󰤢", "󰤥"],
+        "format-ethernet": "󰈀 ",
+        "tooltip-format": "Network: <b>{essid}</b>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": " ",
         "tooltip-format-disconnected": "Disconnected",
-        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "format-ethernet": "{ifname}",
-        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "nospacing": 1,
-        "interval": 5
+        "on-click": "sh ~/.config/rofi/wifi/rofi-wifi-menu.sh &",
+        "interval": 2,
     },
     "pulseaudio": {
         "format": "{icon}{volume}%",
@@ -96,11 +73,6 @@
         },
         "on-click": "pavucontrol",
         "scroll-step": 1
-    },
-    "custom/launcher": {
-        "format": " 󰣇 ",
-        "tooltip": false,
-        "on-click": "~/.config/rofi/launchers/launcher.sh"
     },
     "battery": {
         "format": "{icon} {capacity}%",
@@ -143,14 +115,12 @@
         "on-click": "~/.config/rofi/powermenu/powermenu.sh"
     },
     "mpris": {
-	"format": "{player_icon}  <i>{title}</i>",
+	"format": "<i>{player_icon} {title}</i>",
 	"format-paused": " {title}",
     "tooltip-format": "{dynamic}",
 	"player-icons": {
-		"spotify": " ",
 		"default": " "
 	},
 	"ignored-players": ["firefox"],
-    "interval": 10
      },
 }

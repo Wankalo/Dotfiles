@@ -1,6 +1,3 @@
-alias vi="nvim"
-alias vim="nvim"
-
 alias _="sudo"
 
 alias ..="cd .."
@@ -23,3 +20,8 @@ alias gp="git push"
 alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
 
 alias py="python"
+
+alias vi="nvim"
+alias vim="nvim"
+
+alias yay="yay --aur"

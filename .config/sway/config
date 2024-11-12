@@ -48,10 +48,14 @@ input type:keyboard {
     xkb_options caps:escape,shift:both_capslock
 }
 
-input "type:touchpad" {
+input type:touchpad {
     click_method clickfinger
     dwt enabled
     tap enabled
+}
+input type:pointer {
+    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+    pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
 }
 ### Key bindings
 
