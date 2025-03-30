@@ -17,7 +17,10 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
-# cd by typing dir name
+
+# Vi mode stuff
+bindkey -v '^?' backward-delete-char
+# bindkey -e # Disable vim mode
 
 # History in cache dir
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
@@ -53,6 +56,9 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# Neovim Manpages
+export MANPAGER='nvim +Man!'
 
 # powerlevel10k might switch to oh my posh
 source $XDG_CONFIG_HOME/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme

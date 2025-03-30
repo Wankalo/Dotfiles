@@ -41,7 +41,6 @@ window#waybar {
 }
 
 #workspaces {
-  margin-left: 10px;
 }
 
 #workspaces button {
@@ -115,7 +114,6 @@ window#waybar {
 
 #custom-powermenu {
   color: @red;
-  margin-right: 10px;
 }
 
 #battery {

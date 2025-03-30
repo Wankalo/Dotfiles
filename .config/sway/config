@@ -10,19 +10,22 @@ set $up k
 set $right l
 # Apps and stuff
 set $term kitty
-set $browser firefox
+#set $browser firefox
+set $browser zen-browser
 set $explorer nemo
 set $menu "sh $HOME/.config/rofi/launchers/launcher.sh"
 
 ### Autostart
 #Authentication agent
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# XDG Portal for screenshare?
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r
 
 ### Visual and themes
 
 # Gaps And No Borders:
-gaps inner 6
-gaps outer 4
+gaps inner 0
+gaps outer 0
 default_border none
 
 # GTK
@@ -33,7 +36,7 @@ exec_always {
 }
 
 # Wallpaper
-output * bg ~/Pictures/bg.jpg fill
+output * bg ~/Pictures/Wallpapers/bg.png fill
 
 ### Idle configuration
 # gotta do this later
@@ -42,8 +45,8 @@ output * bg ~/Pictures/bg.jpg fill
 
 # Keyboard layout
 input type:keyboard {
-    xkb_layout es,us 
-    #de
+    xkb_layout es,us
+    # xkb_layout es,us,de
     # Swap caps lock and esc
     xkb_options caps:escape,shift:both_capslock
 }
@@ -97,6 +100,13 @@ input type:pointer {
     bindsym XF86Keyboard input type:keyboard xkb_switch_layout next
 
     bindsym XF86PowerOff exec sh $HOME/.config/rofi/powermenu/powermenu.sh
+    
+    # Music control
+
+    bindsym XF86AudioPlay exec playerctl play
+    bindsym XF86AudioPause exec playerctl pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
 
     bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
     bindsym $mod+Print exec grim -g "$(slurp -d)" $HOME/Pictures/Capturas/$(date +"%d-%m-%Y-%H%S").png

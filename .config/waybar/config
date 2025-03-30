@@ -76,6 +76,7 @@
     },
     "battery": {
         "format": "{icon} {capacity}%",
+        "tooltip-format": "{timeTo}\nPower: {power} W\nSalud: {health}%",
         "format-icons": {
             "charging": [
                 "󰢜",
@@ -107,7 +108,6 @@
             "warning": 25,
             "critical": 10
         },
-        "tooltip": false
     },
     "custom/powermenu": {
         "format": "⏻ ",
