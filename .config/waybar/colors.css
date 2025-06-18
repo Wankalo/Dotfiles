@@ -1,5 +1,6 @@
-@define-color bg rgba(10,10,10, 0.87);
-@define-color solid-bg rgba(10,10,10,1);
-@define-color text #f6f6f6;
+@define-color bg rgba(24,26,32, 1);
+@define-color solid-bg rgba(24,26,32, 1);
+@define-color bg2 rgba(39,42,52,1);
+@define-color text #ffffff;
 @define-color unfocused-text #666666;
 @define-color red #b74d50;

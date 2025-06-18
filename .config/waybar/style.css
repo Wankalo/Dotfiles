@@ -5,6 +5,8 @@
   font-size: 14px;
   font-weight: bold;
   border-radius: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 window#waybar {
@@ -34,6 +36,7 @@ window#waybar {
 #mpris,
 #mode,
 #language{
+  color: @text;
   margin-left: 6px;
   margin-right: 6px;
   padding-left: 3px;
@@ -48,13 +51,13 @@ window#waybar {
   padding-right: 6px;
   color: @unfocused-text;
   font-weight: bolder;
+
 }
 
 #workspaces button.focused {
   color: @text;
   animation: button_activate .2s ease-in-out;
   background: radial-gradient(circle, rgba(25, 79, 25, 0.25) 20%, rgba(132, 129, 156, 0) 30%);
-  border-bottom: 2px solid;
 }
 
 #workspaces button.urgent {
@@ -66,6 +69,8 @@ window#waybar {
 #workspaces button.active:hover,
 #workspaces button.urgent:hover {
   background: none;
+  color: @text;
+  animation: button_activate .2s ease-in-out;
 }
 
 
@@ -89,6 +94,7 @@ window#waybar {
 }
 
 #clock {
+  color: @text;
   font-weight: bolder;
   font-size: 13px;
 }
@@ -97,6 +103,7 @@ window#waybar {
 }
 
 #backlight {
+color: @text;
 }
 
 #pulseaudio {

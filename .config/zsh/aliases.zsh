@@ -17,11 +17,12 @@ alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
 
-alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
-
 alias py="python"
 
 alias vi="nvim"
 alias vim="nvim"
 
 alias yay="yay --aur"
+
+alias upgrade="sudo pacman -Syu"
+alias pacin="sudo pacman -S"
